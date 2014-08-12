@@ -89,7 +89,7 @@ class Curl {
 		$this->setHttpAuth(self::AUTH_BASIC);
 		$this->setopt(CURLOPT_USERPWD, $username . ':' . $password);
 	}
-	
+
 	protected function setHttpAuth($httpauth) {
 		$this->setOpt(CURLOPT_HTTPAUTH, $httpauth);
 	}
@@ -105,6 +105,14 @@ class Curl {
 
 	public function setReferrer($referrer) {
 		$this->setopt(CURLOPT_REFERER, $referrer);
+	}
+
+	public function setTimeout($timeout = 6) {
+		$this->setopt(CURLOPT_TIMEOUT, $timeout);
+	}
+
+	public function setConnectionTimeout($timeout = 6) {
+		$this->setopt(CURLOPT_CONNECTTIMEOUT, $timeout);
 	}
 
 	public function setCookie($key, $value) {
